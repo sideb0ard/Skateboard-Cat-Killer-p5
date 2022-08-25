@@ -4,41 +4,22 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Viz3D</title>
+    <title>Skateboard Cat Killer!</title>
     <style>
 body {
   padding: 0;
   margin: 0;
 }
     </style>
-    <script src="utils.js"></script>
-    <script src="libs/three.js"></script>
-    <script src="libs/dat.gui.js"></script>
-    <script src="libs/Stats.js"></script>
-    <script src="libs/OrbitControls.js"></script>
+    <script src="libs/p5.min.js"></script>
+    <script src="libs/p5.sound.min.js"></script>
   </head>
-  <script id="vertex_shader" type="x-shader/x-vertex">
-    varying vec3 vNormal;
-    void main() {
-      vNormal = normal;
-      gl_Position = projectionMatrix * modelViewMatrix * vec4( position, 1.0 );
-    }
-  </script>
-
-  <script id="fragment_shader" type="x-shader/x-fragment">
-    uniform sampler2D tex;
-    varying vec3 vNormal;
-    void main() {
-      vec2 uv = normalize( vNormal ).xy * 0.5 + 0.5;
-      vec3 color = texture2D( tex, uv ).rgb;
-      if ( vNormal.z < - 0.85 ) color = vec3( 0.777, 0.74, 0.74 ); // back of eye
-      gl_FragColor = vec4( color, 1.0 );
-    }
-  </script>
-
 
   <body>
-    <script src="viz.js"></script>
+    <script src="bench.js"></script>
+    <script src="cat.js"></script>
+    <script src="skateboarder.js"></script>
+    <script src="sketch.js"></script>
     <main>
     </main>
   </body>
